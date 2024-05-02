@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.example.Main.CalculatorApp;
+
 public class UIBuilder {
 
     public static void setFrameAndTextField(
@@ -26,27 +28,17 @@ public class UIBuilder {
         textField.setEditable(false);
     }
 
-    public static void addButtons(
-            JButton[] functionButtons,
-            JButton addButton,
-            JButton subButton,
-            JButton mulButton,
-            JButton divButton,
-            JButton decButton,
-            JButton equButton,
-            JButton delButton,
-            JButton clrButton,
-            JButton negButton) {
+    public static void addButtons(CalculatorApp app) {
 
-        functionButtons[0] = addButton;
-        functionButtons[1] = subButton;
-        functionButtons[2] = mulButton;
-        functionButtons[3] = divButton;
-        functionButtons[4] = decButton;
-        functionButtons[5] = equButton;
-        functionButtons[6] = delButton;
-        functionButtons[7] = clrButton;
-        functionButtons[8] = negButton;
+        app.functionButtons[0] = app.addButton;
+        app.functionButtons[1] = app.subButton;
+        app.functionButtons[2] = app.mulButton;
+        app.functionButtons[3] = app.divButton;
+        app.functionButtons[4] = app.decButton;
+        app.functionButtons[5] = app.equButton;
+        app.functionButtons[6] = app.delButton;
+        app.functionButtons[7] = app.clrButton;
+        app.functionButtons[8] = app.negButton;
     }
 
     public static void setButtons(
@@ -84,49 +76,35 @@ public class UIBuilder {
         panel.setLayout(new GridLayout(4, 4, 10, 10));
     }
 
-    public static void addToPanel(
-            JPanel panel,
-            JButton[] numberButtons,
-            JButton addButton,
-            JButton subButton,
-            JButton mulButton,
-            JButton decButton,
-            JButton equButton,
-            JButton divButton) {
+    public static void addToPanel(CalculatorApp app) {
 
-        panel.add(numberButtons[1]);
-        panel.add(numberButtons[2]);
-        panel.add(numberButtons[3]);
-        panel.add(addButton);
-        panel.add(numberButtons[4]);
-        panel.add(numberButtons[5]);
-        panel.add(numberButtons[6]);
-        panel.add(subButton);
-        panel.add(numberButtons[7]);
-        panel.add(numberButtons[8]);
-        panel.add(numberButtons[9]);
-        panel.add(mulButton);
-        panel.add(decButton);
-        panel.add(numberButtons[0]);
-        panel.add(equButton);
-        panel.add(divButton);
+        app.panel.add(app.numberButtons[1]);
+        app.panel.add(app.numberButtons[2]);
+        app.panel.add(app.numberButtons[3]);
+        app.panel.add(app.addButton);
+        app.panel.add(app.numberButtons[4]);
+        app.panel.add(app.numberButtons[5]);
+        app.panel.add(app.numberButtons[6]);
+        app.panel.add(app.subButton);
+        app.panel.add(app.numberButtons[7]);
+        app.panel.add(app.numberButtons[8]);
+        app.panel.add(app.numberButtons[9]);
+        app.panel.add(app.mulButton);
+        app.panel.add(app.decButton);
+        app.panel.add(app.numberButtons[0]);
+        app.panel.add(app.equButton);
+        app.panel.add(app.divButton);
 
     }
 
-    public static void addToFrameAndSetVisibility(
-            JFrame frame,
-            JPanel panel,
-            JButton negButton,
-            JButton delButton,
-            JButton clrButton,
-            JTextField textField) {
+    public static void addToFrameAndSetVisibility(CalculatorApp app) {
 
-        frame.add(panel);
-        frame.add(negButton);
-        frame.add(delButton);
-        frame.add(clrButton);
-        frame.add(textField);
-        frame.setVisible(true);
+        app.frame.add(app.panel);
+        app.frame.add(app.negButton);
+        app.frame.add(app.delButton);
+        app.frame.add(app.clrButton);
+        app.frame.add(app.textField);
+        app.frame.setVisible(true);
         
     }
 }

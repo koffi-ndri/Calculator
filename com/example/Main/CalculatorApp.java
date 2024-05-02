@@ -13,13 +13,13 @@ import com.example.Utils.UIBuilder;
 
 public class CalculatorApp implements ActionListener {
 
-    JFrame frame;
+    public JFrame frame;
     public JTextField textField;
-    JButton[] functionButtons = new JButton[9];
+    public JButton[] functionButtons = new JButton[9];
     public JButton[] numberButtons = new JButton[10];
     public JButton addButton, subButton, mulButton, divButton;
     public JButton decButton, equButton, delButton, clrButton, negButton;
-    JPanel panel; // holds all separation buttons
+    public JPanel panel; // holds all separation buttons
 
     Font font = new Font("Ink Free", Font.BOLD, 30);
     public double num1 = 0, num2 = 0, result = 0;
@@ -41,19 +41,12 @@ public class CalculatorApp implements ActionListener {
         panel = new JPanel();
 
         UIBuilder.setFrameAndTextField(frame, textField, font);
-        UIBuilder.addButtons(
-                functionButtons, addButton, subButton, mulButton, divButton,
-                decButton, equButton, delButton, clrButton, negButton);
+        UIBuilder.addButtons(this);
         UIBuilder.setButtons(functionButtons, numberButtons, this, font);
         UIBuilder.setBoundsOf(negButton, delButton, clrButton);
         UIBuilder.setPanel(panel);
-        UIBuilder.addToPanel(
-                panel, numberButtons, addButton, subButton,
-                mulButton, decButton, equButton, divButton);
-
-        UIBuilder.addToFrameAndSetVisibility(
-                frame, panel, negButton,
-                delButton, clrButton, textField);
+        UIBuilder.addToPanel(this);
+        UIBuilder.addToFrameAndSetVisibility(this);
     }
 
     public static void main(String[] args) {
